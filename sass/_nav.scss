@@ -1,0 +1,195 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $h_nav;
+    z-index: 10000;
+
+    .nav-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(32, 32, 32);
+
+        .ham {
+            @include flexCenter;
+            position: absolute;
+            right: 2rem;
+            top: 0;
+            width: $h_nav;
+            height: $h_nav;
+
+            .line-wrap {
+                position: relative;
+                width: 70%;
+                height: 70%;
+
+                transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                transform: rotate(0);
+
+                .line {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: .2rem;
+                    background-color: wheat;
+                    transition: .5s ease-in-out;
+                    transform: rotate(0);
+                }
+
+                .line:nth-child(1) {
+                    top: 40%;
+                    transform: rotate(0);
+                }
+
+                .line:nth-child(2) {
+                    top: 60%;
+                    transform: rotate(0);
+                }
+            }
+
+            .line-wrap-active {
+                transform: rotate(270deg);
+
+                .line:nth-child(1) {
+                    top: 50%;
+                    transform: rotate(45deg);
+                }
+
+                .line:nth-child(2) {
+                    top: 50%;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .service-wrap {
+        @include flex(center, flex-start);
+        position: absolute;
+        top: $h_nav;
+        left: -$nav_screen;
+        width: 50%;
+        height: calc(100vh - #{$h_nav});
+        background-color: rgb(32, 32, 32);
+        opacity: 0;
+        transition: .4s ease-out;
+
+        ul {
+            width: 100%;
+            height: auto;
+            // margin-top: 5rem;
+            padding: 4rem 1rem;
+            background-color: rgb(43, 43, 43);
+
+            li {
+                @include flex(flex-start, center);
+                border-radius: .5rem;
+                background-color: rgb(61, 61, 61);
+
+                margin-bottom: .4rem;
+                padding: 0 .5rem;
+                list-style: none;
+
+                a {
+                    // display: block;
+                    // width: 100%;
+                    height: 100%;
+                    margin-left: 1rem;
+                    padding: 1rem .2rem;
+                    text-decoration: none;
+                    color: rgba(245, 245, 245, 0.5);
+                    font-size: 1.4rem;
+
+                }
+
+                svg {
+
+
+                    path {
+                        fill: rgba(245, 245, 245, 0.5);
+                    }
+                }
+            }
+
+            .active-li {
+                a {
+                    color: rgb(255, 253, 248);
+                }
+
+            }
+        }
+    }
+
+    .service-wrap-active {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    nav {
+
+        .nav-container {
+            .ham {
+                display: none;
+            }
+        }
+
+        .service-wrap {
+            position: absolute;
+            top: $h_nav;
+            left: 0;
+            width: $nav_screen;
+            height: calc(100vh - #{$h_nav});
+            background-color: rgb(32, 32, 32);
+            opacity: 1;
+
+            ul {
+
+
+                li {
+                    position: relative;
+
+
+                    a {
+
+                        font-size: 1.6rem;
+                        transition: .3s linear;
+
+                    }
+                }
+
+                li:after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: .6rem;
+                    height: .6rem;
+                    border-radius: 50%;
+                    transform: translateY(-50%);
+                    background-color: rgba(245, 245, 245, 0);
+                    transition: .3s linear;
+                }
+
+                li:hover:after {
+                    right: 1.5rem;
+                    background-color: rgb(255, 255, 255);
+                }
+
+                li:hover {
+
+
+
+                    a {
+                        color: rgb(255, 253, 248);
+                        padding-left: 1rem;
+                    }
+
+                }
+            }
+        }
+    }
+}

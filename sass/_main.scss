@@ -1,0 +1,215 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: $white;
+}
+
+.alert {
+    @include flexCenter;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 55rem;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1rem;
+    animation: hide-allert 4s linear 1 both;
+    opacity: 0;
+
+
+
+}
+
+.alert-success {
+    color: green;
+    background-color: rgba(124, 253, 178, 0.95);
+    border-color: green;
+
+}
+
+.alert-warning {
+    color: rgb(255, 35, 35);
+    background-color: rgb(255, 179, 169);
+    border-color: red;
+}
+
+.wrap {
+
+    width: 100%;
+    height: auto;
+    margin-top: $h_nav;
+    // overflow: hidden;
+
+    .container {
+        @include flex(flex-start, center);
+        flex-direction: column;
+        width: 100%;
+        min-height: calc(100vh - #{$h_nav});
+
+        .pop-confirm {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 10001;
+
+            .delete-position-wrap {
+                @include flexCenter;
+                flex-direction: column;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: auto;
+                height: auto;
+                padding: 2rem 10rem;
+                background-color: white;
+                border-radius: 1rem;
+                box-shadow: 0 0 10px 1px rgba(255, 0, 0, 0.5);
+
+                p {
+                    font-size: 1.8rem;
+                    margin-bottom: 1rem;
+                }
+
+                .btn-group {
+                    @include flexCenter;
+                    width: 100%;
+
+                    button {
+                        margin: 10px 5px;
+                        border-radius: 1rem;
+
+                        border: 1px solid black;
+                        overflow: hidden;
+
+
+                    }
+
+                    .btn {
+                        padding: .5rem 1rem;
+                    }
+
+                    .btn-warning {
+                        a {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgb(163, 0, 0);
+                            color: rgb(228, 228, 228);
+                            padding: .5rem 1rem;
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+        .pop-confirm-active {
+            display: block;
+        }
+    }
+
+
+}
+
+// .non-margin {
+//     margin-top: 0 !important;
+// }
+
+.margin-tb-3 {
+    margin: 3rem 0;
+}
+
+.margin-tb-2r {
+    margin: 2rem 0;
+}
+
+.margin-tb-2 {
+    margin: 2rem 0;
+}
+
+.margin-tb-1 {
+    margin: 1rem 0;
+}
+
+.size-2 {
+    font-size: 3rem;
+}
+
+.flex-center {
+    @include flexCenter;
+}
+
+
+
+@media screen and (min-width: 1025px) {
+    .wrap {
+
+        width: calc(100% - #{$nav_screen});
+        height: auto;
+        margin-left: $nav_screen;
+
+
+
+        // overflow: hidden;
+
+        .container {
+            @include flex(flex-start, center);
+            flex-direction: column;
+            width: 100%;
+            // min-height: 100vh;
+        }
+
+
+    }
+
+    .non-margin {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@keyframes hide-allert {
+    0% {
+        transform: translateX(-50%) translateY(5rem);
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(-50%) translateY(-10rem);
+        opacity: 0;
+    }
+
+    100% {
+        display: none;
+    }
+}

@@ -1,0 +1,144 @@
+.form-container {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    background-image: url(../img/Continental_PP_Tire-Management_ContiConnect_2.0-1024x740.jpg);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    // clip-path: polygon(0 36%, 100% 14%, 100% 100%, 0% 100%);
+    .cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.74);
+        z-index: 0;
+    }
+
+    h1 {
+        @include flexCenter;
+        width: 100%;
+        height: 20%;
+        // padding: 5rem 0;
+        color: $white;
+        text-align: center;
+
+
+        // background-color: aquamarine;
+    }
+
+    .form {
+        position: relative;
+        @include flexCenter;
+        flex-direction: column;
+        width: 100%;
+        max-width: 38rem;
+        height: 90%;
+        max-height: 60rem;
+        // background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 2rem;
+        // clip-path: polygon(0 36%, 100% 0, 100% 100%, 0% 100%);
+
+
+
+
+
+        form {
+            @include flexCenter;
+            flex-direction: column;
+            width: 100%;
+            height: 90%;
+
+            // height: auto;
+            padding: 5rem;
+            // background-color: white;
+            border-radius: 2rem;
+            box-shadow: 0 0 50px 1px rgba(199, 199, 199, 0.6);
+            background-image: linear-gradient($black 35%, $yellow);
+
+            .input-group {
+                @include flexCenter;
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem 0;
+                color: black;
+
+
+
+                label {
+                    display: none;
+                    padding: .5rem;
+                    font-size: 1.5rem;
+                }
+
+                input {
+                    // position: relative;
+                    width: 100%;
+                    padding: .5rem;
+                    text-align: center;
+                    background-color: $black;
+                    border: none; // border-bottom: 1px solid black;
+                    border-radius: 1rem;
+                    padding: 1rem;
+                    color: white;
+                    font-size: 1.6rem;
+
+                }
+
+                // input::after {
+                //     content: "";
+                //     position: absolute;
+                //     top: 0;
+                //     left: 0;
+                //     width: .3rem;
+                //     height: 100%;
+                //     background-color: $yellow;
+                // }
+
+                input[type=submit] {
+                    margin-top: 2rem;
+                    width: 50%;
+                    border: none;
+                    background-color: $yellow;
+                    box-shadow: 0 0 1rem.1rem transparent;
+                    color: black; // transform: scale(1);
+                    transition: .3s ease-in-out;
+
+                }
+
+                input[type=submit]:hover {
+                    background-color: $black;
+                    color: $white;
+                    box-shadow: 0 0 1rem.1rem $white;
+
+
+                }
+
+                .log-img {
+                    @include flexCenter;
+                    width: 8rem;
+                    height: 8rem;
+                    border-radius: 50%;
+                    box-shadow: 0 0 3rem .1rem orange, 0 0 6rem .1rem $yellow;
+                    background-color: $yellow;
+
+
+
+                    // img {
+                    //     width: 100%;
+                    //     border-radius: 50%;
+                    //     border: 1px solid rgb(136, 136, 136);
+                    // }
+                }
+            }
+        }
+
+    }
+
+}
